@@ -1,0 +1,184 @@
+/* The Cocktail Lab — Version 2.1, Hierarchy Refinement. */
+:root {
+  color-scheme: light;
+  --paper: #e7e2d8;
+  --surface: #dfd9ce;
+  --stone: #d5cec0;
+  --ink: #353632;
+  --secondary-ink: #51534b;
+  --tea: #535e50;
+  --wood: #705b4b;
+  --amber: #aa8d62;
+  --line: #beb7a9;
+  --serif: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); scroll-padding-top: 2rem; }
+body {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { color: var(--ink); background: var(--stone); }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav a { font-size: 0.85rem; text-decoration: none; }
+h1, h2, h3 {
+  margin: 0 0 1rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+h1 {
+  max-width: 13ch;
+  font-size: clamp(3.4rem, 7vw, 5.8rem);
+  letter-spacing: -0.055em;
+}
+h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: -0.035em; }
+/* Supplemental visual cues; the HTML heading order remains the learning order. */
+main > section > h2::before {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--wood);
+  font: 500 0.75rem/1.5 var(--sans);
+  letter-spacing: 0.12em;
+}
+#mixology-fundamentals > h2 { color: var(--tea); }
+#mixology-fundamentals > h2::before {
+  content: "START HERE / 01";
+  color: var(--tea);
+  font-weight: 700;
+}
+#classic-cocktails > h2::before { content: "EXPLORE / 02"; }
+#simulator > h2::before { content: "EXPERIMENT / 03"; }
+h3 { font-size: 1.45rem; letter-spacing: -0.02em; }
+p { margin: 0 0 1.25rem; }
+main > section { padding: 4.25rem 0; border-bottom: 1px solid var(--line); }
+main > section > p { max-width: 43rem; color: var(--secondary-ink); }
+main > .hero { padding: 5.5rem 0 5rem; }
+.hero > p {
+  max-width: 37rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+a[href] { color: var(--tea); text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+a[href]:hover { color: var(--wood); text-decoration: underline; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.cards article {
+  height: 100%;
+  padding: 1.65rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface);
+}
+.cards p { color: var(--secondary-ink); font-size: 0.925rem; }
+.cards article > :last-child { margin-bottom: 0; }
+#classic-cocktails .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+#classic-cocktails article { padding: 1.25rem; }
+#classic-cocktails article > p:first-of-type { min-height: 3.4em; font-size: 0.8rem; }
+.cards .image-placeholder {
+  display: flex;
+  min-height: 11rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--amber);
+  background: var(--stone);
+  color: var(--secondary-ink);
+  font-size: 0.75rem;
+  text-align: center;
+}
+.recipe-placeholder {
+  color: var(--wood);
+  font-size: 0.825rem;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.3em;
+}
+.button-link, button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--tea);
+  border-radius: 2px;
+  font: 500 0.875rem/1.5 var(--sans);
+  text-align: center;
+}
+a.button-link { color: var(--paper); background: var(--tea); text-decoration: none; }
+.hero > a.button-link { font-size: 1rem; font-weight: 600; }
+a.button-link:hover {
+  color: var(--paper);
+  border-color: var(--wood);
+  background: var(--wood);
+  text-decoration: none;
+}
+#simulator button { margin-top: 2rem; }
+button:disabled {
+  color: var(--secondary-ink);
+  border-color: var(--line);
+  background: var(--stone);
+  cursor: not-allowed;
+}
+a[href]:focus-visible, button:focus-visible { outline: 2px solid var(--wood); outline-offset: 5px; }
+footer { padding: 2.5rem 0 3rem; }
+footer .brand { margin-bottom: 0.5rem; }
+footer > p:last-child { margin-bottom: 0; color: var(--secondary-ink); font-size: 0.85rem; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 60rem) {
+  body { padding: 0 2rem; }
+  .site-header { align-items: flex-start; flex-direction: column; }
+  .cards, #classic-cocktails .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 38rem) {
+  body { padding: 0 1.25rem; }
+  main > section { padding: 3rem 0; }
+  main > .hero { padding: 3.5rem 0; }
+  nav ul { gap: 0.75rem 1rem; }
+  .cards, #classic-cocktails .cards { grid-template-columns: 1fr; }
+}
